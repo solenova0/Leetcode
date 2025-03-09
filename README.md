@@ -68,27 +68,6 @@ Language-Specific Solutions: Solutions are available in multiple programming lan
 
 🔴 C++: High-performance solutions for competitive programming.
 
-📌 Folder Structure
-LeetCode-Solutions/
-├── Algorithms/
-│   ├── Sorting/
-│   ├── Searching/
-│   ├── Dynamic-Programming/
-│   └── ...
-├── Data-Structures/
-│   ├── Arrays/
-│   ├── Linked-Lists/
-│   ├── Trees/
-│   └── ...
-├── System-Design/
-│   ├── OOD/
-│   ├── Design-Patterns/
-│   └── ...
-├── SQL-Databases/
-│   ├── Queries/
-│   ├── Joins/
-│   └── ...
-└── ...
 📌 Contributions
 Contributions are welcome! If you have a better solution, a new approach, or want to add a problem that’s not yet covered, feel free to:
 
