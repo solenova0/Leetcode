@@ -69,7 +69,6 @@ Language-Specific Solutions: Solutions are available in multiple programming lan
 🔴 C++: High-performance solutions for competitive programming.
 
 📌 Folder Structure
-Copy
 LeetCode-Solutions/
 ├── Algorithms/
 │   ├── Sorting/
