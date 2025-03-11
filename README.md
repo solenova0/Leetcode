@@ -1,5 +1,5 @@
-LeetCode Solutions Repository 🚀
-Welcome to my LeetCode solutions repository! This repository contains my solutions to various LeetCode problems, implemented in multiple programming languages. Each solution is designed with clarity, efficiency, and readability in mind. Whether you're preparing for coding interviews or just sharpening your problem-solving skills, I hope this repository proves to be a valuable resource.
+LeetCode Solutions Repository 
+Welcome to my LeetCode solutions repository! This repository contains my solutions to various LeetCode problems, implemented in multiple programming languages.I hope this repository proves to be a valuable resource.
 
 📌 Categories Covered
 This repository covers a wide range of topics, including:
@@ -50,14 +50,6 @@ Window Functions
 
 Database Design & Normalization
 
-📌 How to Use This Repository
-Browse by Category: Navigate through the folders organized by problem categories (e.g., Algorithms, Data Structures, etc.).
-
-Problem Statements: Each solution file includes the problem statement as a comment for quick reference.
-
-Multiple Approaches: Where applicable, I’ve provided multiple solutions (e.g., brute force, optimized) to help you understand different ways to solve the same problem.
-
-Language-Specific Solutions: Solutions are available in multiple programming languages, so you can choose the one you’re most comfortable with.
 
 📌 Languages Used
 🟢 Python: Clean and concise solutions for quick understanding.
