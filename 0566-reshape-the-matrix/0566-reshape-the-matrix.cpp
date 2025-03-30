@@ -1,4 +1,4 @@
- class Solution {
+  class Solution {
  public:
   vector<vector<int>> matrixReshape(vector<vector<int>>& nums, int r, int c) {
     if (nums.empty() && nums[0].empty()) return { {} };
@@ -11,3 +11,6 @@
         ret[i][j] = nums[idx / n][(idx % n)];
       }
     }
+  return ret;
+  }
+ };
