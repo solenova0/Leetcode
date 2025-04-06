@@ -1,31 +1,32 @@
-from typing import List
-from collections import defaultdict
-
 class Solution:
     def isRectangleCover(self, rectangles: List[List[int]]) -> bool:
-        point_count = defaultdict(int)
-        minX = minY = float('inf')
-        maxX = maxY = float('-inf')
-        actual_area = 0
+        area = 0
+        minX, minY = rectangles[0][0], rectangles[0][1]
+        maxX, maxY = rectangles[0][2], rectangles[0][3]
+        cnt = defaultdict(int)
 
-        for x1, y1, x2, y2 in rectangles:
-            # Update bounding box
-            minX, minY = min(minX, x1), min(minY, y1)
-            maxX, maxY = max(maxX, x2), max(maxY, y2)
-            
-            # Add area of current rectangle
-            actual_area += (x2 - x1) * (y2 - y1)
+        for r in rectangles:
+            area += (r[2] - r[0]) * (r[3] - r[1])
 
-            # Count the 4 corners
-            for point in [(x1, y1), (x1, y2), (x2, y2), (x2, y1)]:
-                point_count[point] ^= 1  # XOR flip: adds if new, removes if duplicate
+            minX = min(minX, r[0])
+            minY = min(minY, r[1])
+            maxX = max(maxX, r[2])
+            maxY = max(maxY, r[3])
 
-        # Expected area from the bounding box
-        expected_area = (maxX - minX) * (maxY - minY)
+            cnt[(r[0], r[1])] += 1
+            cnt[(r[0], r[3])] += 1
+            cnt[(r[2], r[3])] += 1
+            cnt[(r[2], r[1])] += 1
 
-        # There must be exactly 4 corner points left
-        expected_corners = {(minX, minY), (minX, maxY), (maxX, maxY), (maxX, minY)}
-        if actual_area != expected_area or set(p for p, v in point_count.items() if v) != expected_corners:
+        if (
+            area != (maxX - minX) * (maxY - minY)
+            or cnt[(minX, minY)] != 1
+            or cnt[(minX, maxY)] != 1
+            or cnt[(maxX, maxY)] != 1
+            or cnt[(maxX, minY)] != 1
+        ):
             return False
 
-        return True
+        del cnt[(minX, minY)], cnt[(minX, maxY)], cnt[(maxX, maxY)], cnt[(maxX, minY)]
+
+        return all(c == 2 or c == 4 for c in cnt.values())
