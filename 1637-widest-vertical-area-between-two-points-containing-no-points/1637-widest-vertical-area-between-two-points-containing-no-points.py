@@ -1,5 +1,5 @@
 from typing import List
-import itertools  # for zip in Python 3
+import itertools  
 
 class Solution:
     def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
