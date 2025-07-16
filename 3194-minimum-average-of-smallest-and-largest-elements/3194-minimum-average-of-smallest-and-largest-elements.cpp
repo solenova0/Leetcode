@@ -7,7 +7,7 @@ public:
         int j = nums.size() - 1;
         ranges::sort(nums);
         while (i < j)
-           ans = min(ans, (nums[i++] + nums[j--]) / 2);
+           ans = min(ans, (nums[i++] + nums[j--]) / 2.0);
 
            return ans;
     }
