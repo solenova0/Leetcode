@@ -1,12 +1,18 @@
 class Solution:
     def numberOfWays(self, n: int, x: int) -> int:
         mod = 10**9 + 7
-        f = [[0] * (n + 1) for _ in range(n + 1)]
-        f[0][0] = 1
+
+        # dp[j] = number of ways to reach sum j using some subset of {1^x, 2^x, ..., i^x}
+        dp = [0] * (n + 1)
+        dp[0] = 1
+
         for i in range(1, n + 1):
-            k = pow(i, x)
-            for j in range(n + 1):
-                f[i][j] = f[i - 1][j]
-                if k <= j:
-                    f[i][j] = (f[i][j] + f[i - 1][j - k]) % mod
-        return f[n][n]
+            val = pow(i, x)
+            if val > n:
+                # This i cannot contribute to any sum <= n, skip updating
+                continue
+            # update in reverse to ensure each i is used at most once
+            for j in range(n, val - 1, -1):
+                dp[j] = (dp[j] + dp[j - val]) % mod
+
+        return dp[n]
