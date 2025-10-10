@@ -3,8 +3,8 @@ class Solution:
         min_len = float('inf')
         left = 0
         curr_sum = 0
-        for right in range(len(nums)):
-            curr_sum += nums[right]
+        for right in range(len(nums)):           #Time: O(n)
+            curr_sum += nums[right]              #Space: O(1)
 
             while curr_sum >= target:
                 min_len = min(min_len, right - left +1)
