@@ -1,7 +1,7 @@
 class Solution:
     def minSwaps(self, nums: List[int]) -> int:
         count_ones = nums.count(1)
-        nums = nums + nums + nums
+        nums = nums + nums 
         count_zeros, curr_zeros = float('inf'), 0
         l = 0
 
