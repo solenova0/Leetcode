@@ -1,19 +1,12 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        from collections import defaultdict
-        
-        freq = defaultdict(int)
-        freq[0] = 1   
-        
-        curr_sum = 0
         count = 0
-        
+        prefix = 0
+        freq = defaultdict(int)  
+        freq[0] = 1            
         for x in nums:
-            curr_sum += x
+            prefix += x
             
-           
-            count += freq[curr_sum - k]
-            
-            freq[curr_sum] += 1
-        
+            count += freq[prefix - k]
+            freq[prefix] += 1
         return count
