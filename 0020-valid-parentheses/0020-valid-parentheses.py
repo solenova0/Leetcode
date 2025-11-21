@@ -1,37 +1,15 @@
 class Solution:
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        if s is None:
-            return True
+    def isValid(self, s: str) -> bool:
         stack = []
-        for t in s:
-            if t == ')':
-                try:
-                    current = stack.pop()
-                    if current != '(':
-                        return False
-                except:
-                    return False
-            elif t == '}':
-                try:
-                    current = stack.pop()
-                    if current != '{':
-                        return False
-                except:
-                    return False
-            elif t == ']':
-                try:
-                    current = stack.pop()
-                    if current != '[':
-                        return False
-                except:
-                    return False
+        mapping = {')': '(', ']': '[', '}': '{'}
+        for i in s:
+            if i not in mapping:
+                stack.append(i)
             else:
-                stack.append(t)
-        if len(stack) == 0:
-            return True
-        else:
-            return False
+                if not stack:
+                    return False 
+                else:
+                    popped = stack.pop()
+                    if popped != mapping[i]:
+                        return False
+        return not stack
