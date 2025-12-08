@@ -1,11 +1,17 @@
 class Solution:
     def countTriples(self, n: int) -> int:
-        count = 0
-        for a in range(1, n + 1):
-            for b in range(1, n + 1):
-                c2 = a * a + b * b
-                c = int(math.sqrt(c2))
-                if c * c == c2 and c <= n:
-                    count += 1
-        return count
-        
+            count = 0
+            for c in range(1, n + 1):
+                target = c * c
+                a, b = 1, c - 1
+                while a < b:                 
+                    s = a * a + b * b
+                    if s == target:
+                        count += 2          
+                        a += 1
+                        b -= 1
+                    elif s < target:
+                        a += 1
+                    else:
+                        b -= 1
+            return count
